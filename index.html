@@ -79,100 +79,104 @@
       z-index: 100;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
+      justify-content: center;
+      padding: 0 2rem;
       background: var(--dark);
-      height: 58px;
+      height: 64px;
     }
 
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: var(--white);
-      text-decoration: none;
-      text-transform: uppercase;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.8rem;
-      list-style: none;
-      margin: 0; padding: 0;
     }
 
-    .nav-links > li { position: relative; }
-
-    .nav-links > li > a {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      height: 58px;
-      text-decoration: none;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
-      transition: color 0.2s;
-      white-space: nowrap;
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      filter: invert(1);
     }
 
-    .nav-links > li > a:hover,
-    .nav-links > li > a.active { color: var(--white); }
-
-    .has-drop > a::after { content: ' ▾'; font-size: 0.55rem; opacity: 0.5; }
-
-    /* dropdown */
-    .drop {
-      display: none;
+    .nav-burger {
       position: absolute;
-      top: 58px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--dark);
-      min-width: 210px;
-      border-top: 2px solid var(--rose);
-      list-style: none;
-      z-index: 200;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      right: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
 
-    .has-drop:hover .drop { display: block; }
-
-    .drop li { border-bottom: 1px solid rgba(255,255,255,0.06); }
-
-    .drop a {
+    .nav-burger span {
       display: block;
-      padding: 0.7rem 1.2rem;
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.72);
+      width: 24px;
+      height: 1.5px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* ── NAV OVERLAY ── */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--dark);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .nav-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nav-overlay a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.85);
       text-decoration: none;
-      transition: color 0.15s, background 0.15s;
-      white-space: nowrap;
+      text-transform: uppercase;
+      transition: color 0.2s;
     }
 
-    .drop a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-overlay a:hover { color: var(--rose); }
 
-    /* Book Now */
-    .nav-cta {
-      background: var(--rose) !important;
+    .nav-overlay .overlay-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      background: var(--rose);
       color: var(--white) !important;
-      padding: 0.45rem 1.1rem !important;
+      padding: 0.9rem 2.5rem;
       border-radius: 2px;
-      height: auto !important;
-      font-size: 0.68rem !important;
-      letter-spacing: 0.13em !important;
+      margin-top: 1rem;
     }
 
-    .nav-cta:hover { background: var(--deep) !important; }
+    .nav-overlay .overlay-cta:hover { background: var(--deep); }
+
+    .nav-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.6);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-close:hover { color: var(--white); }
 
     /* ── HERO ── */
     .hero {
@@ -845,20 +849,28 @@
 
   <!-- ── NAV ── -->
   <nav>
-    <a class="nav-logo" href="index.html"><img src="images/logo-dark.png" alt="Levi &amp; Moon" style="height:36px;width:auto;vertical-align:middle;filter:invert(1);" /></a>
-    <ul class="nav-links">
-      <li class="has-drop">
-        <a href="#">Event Packages</a>
-        <ul class="drop">
-          <li><a href="baekil.html">Baekil (100 Day)</a></li>
-          <li><a href="dohl.html">Dohl (First Birthday)</a></li>
-          <li><a href="birthday.html">Birthday Celebrations</a></li>
-        </ul>
-      </li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#booking" class="nav-cta">Book</a></li>
-    </ul>
+    <a class="nav-logo" href="index.html">
+      <img src="images/logo-dark.png" alt="Levi &amp; Moon" />
+    </a>
+    <button class="nav-burger" onclick="toggleNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- ── NAV OVERLAY ── -->
+  <div class="nav-overlay" id="navOverlay">
+    <button class="nav-close" onclick="toggleNav()" aria-label="Close menu">✕</button>
+    <a href="baekil.html" onclick="toggleNav()">Baekil</a>
+    <a href="dohl.html" onclick="toggleNav()">Dohl</a>
+    <a href="index.html#about" onclick="toggleNav()">About</a>
+    <a href="index.html#booking" class="overlay-cta" onclick="toggleNav()">Book Now</a>
+  </div>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navOverlay').classList.toggle('open');
+    }
+  </script>
 
   <!-- ── HERO ── -->
   <section class="hero">
