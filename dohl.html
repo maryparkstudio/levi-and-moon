@@ -87,7 +87,7 @@
       height: 64px;
     }
     .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 40px; width: auto; filter: invert(1); }
+    .nav-logo img { height: 40px; width: auto; }
     .nav-burger {
       position: absolute; right: 2rem;
       background: none; border: none; cursor: pointer;
@@ -191,6 +191,7 @@
       text-transform: uppercase;
       color: var(--rose);
       margin-bottom: 0.75rem;
+      text-align: center;
     }
 
     .section-heading {
@@ -200,6 +201,7 @@
       color: var(--dark);
       margin-bottom: 0.75rem;
       line-height: 1.15;
+      text-align: center;
     }
 
     .section-heading em { font-style: italic; color: var(--rose); }
@@ -209,6 +211,9 @@
       color: var(--mid);
       line-height: 1.8;
       max-width: 540px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* ── STANDARD PACKAGES ── */
@@ -410,7 +415,7 @@
     /* ── CUSTOMIZATIONS ── */
     #customizations { padding: 5rem 3rem; background: var(--blush); }
 
-    .custom-header { margin-bottom: 3rem; }
+    .custom-header { margin-bottom: 3rem; text-align: center; }
 
     .custom-note {
       display: inline-block;
@@ -688,7 +693,7 @@
   <nav>
     <div style="width:36px;"></div>
     <a class="nav-logo" href="index.html">
-      <img src="images/logo-dark-horizontal.png" alt="Levi &amp; Moon" style="height:32px;width:auto;filter:invert(1);" />
+      <img src="images/logo-dark-horizontal.png" alt="Levi &amp; Moon" style="height:32px;width:auto;" />
     </a>
     <button class="nav-burger" onclick="toggleNav()" aria-label="Open menu">
       <span></span><span></span><span></span>
