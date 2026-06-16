@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Celebrations | Levi & Moon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blush:      #f5e6e0;
+      --rose:       #c9826b;
+      --deep:       #7a4a3a;
+      --cream:      #fdf7f4;
+      --sand:       #e8d5c4;
+      --dark:       #2c1a12;
+      --mid:        #6b4c3b;
+      --white:      #ffffff;
+      --teal:       #7bb5b0;
+      --teal-light: #e8f4f3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      background: var(--dark);
+      height: 58px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+
+    .nav-links > li { position: relative; }
+
+    .nav-links > li > a {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      height: 58px;
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links > li > a:hover,
+    .nav-links > li > a.active { color: var(--white); }
+
+    .has-drop > a::after { content: ' ▾'; font-size: 0.55rem; opacity: 0.5; }
+
+    .drop {
+      display: none;
+      position: absolute;
+      top: 58px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark);
+      min-width: 210px;
+      border-top: 2px solid var(--rose);
+      list-style: none;
+      z-index: 200;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
+    .has-drop:hover .drop { display: block; }
+
+    .drop li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+    .drop a {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+
+    .drop a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+
+    .nav-cta {
+      background: var(--rose) !important;
+      color: var(--white) !important;
+      padding: 0.45rem 1.1rem !important;
+      border-radius: 2px;
+      height: auto !important;
+      font-size: 0.68rem !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .nav-cta:hover { background: var(--deep) !important; }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 10rem 3rem 5rem;
+      background: linear-gradient(160deg, var(--dark) 0%, var(--deep) 40%, var(--mid) 100%);
+      text-align: center;
+      color: var(--white);
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1rem;
+    }
+
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--blush);
+    }
+
+    .page-hero p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+
+    /* ── INTRO ── */
+    #intro {
+      padding: 5rem 3rem;
+      background: var(--cream);
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-heading em { font-style: italic; color: var(--rose); }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.8;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ── WHAT WE DO CARDS ── */
+    #services-overview {
+      padding: 4rem 3rem;
+      background: var(--blush);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 2.5rem auto 0;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-top: 3px solid var(--rose);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── INQUIRY FORM ── */
+    #inquiry {
+      padding: 5rem 3rem;
+      background: var(--cream);
+    }
+
+    .inquiry-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .inquiry-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--dark);
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: 2px;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rose);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--mid);
+      margin-top: 0.3rem;
+      line-height: 1.5;
+    }
+
+    .form-check-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.83rem;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    .form-check input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      padding: 0;
+      accent-color: var(--rose);
+      flex-shrink: 0;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      margin-top: 2rem;
+      background: var(--rose);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+
+    .submit-btn:hover { background: var(--deep); }
+
+    .form-disclaimer {
+      font-size: 0.75rem;
+      color: rgba(44,26,18,0.45);
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ── ADD-ONS ── */
+    #customizations {
+      padding: 5rem 3rem;
+      background: var(--blush);
+    }
+
+    .custom-header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .custom-note {
+      display: block;
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 2.5rem;
+    }
+
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .addon-card {
+      background: var(--white);
+      border-radius: 3px;
+      border-left: 3px solid var(--rose);
+      padding: 1.4rem 1.2rem;
+    }
+
+    .addon-card.premium {
+      border-left-color: var(--teal);
+      background: var(--teal-light);
+    }
+
+    .addon-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--rose);
+      margin-bottom: 0.3rem;
+    }
+
+    .addon-price.teal { color: var(--teal); }
+
+    .addon-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--dark);
+      margin-bottom: 0.7rem;
+      text-transform: uppercase;
+    }
+
+    .addon-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .addon-list li::before {
+      content: '— ';
+      opacity: 0.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    footer .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    footer nav { display: flex; gap: 2rem; }
+
+    footer nav a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    footer nav a:hover { color: var(--rose); }
+
+    footer p { font-size: 0.78rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      #intro, #services-overview, #inquiry, #customizations { padding: 4rem 1.5rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-check-group { grid-template-columns: 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="nav-logo" href="index.html">Levi &amp; Moon</a>
+    <ul class="nav-links">
+      <li class="has-drop">
+        <a href="#">Event Packages</a>
+        <ul class="drop">
+          <li><a href="baekil.html">Baekil (100 Day)</a></li>
+          <li><a href="dohl.html">Dohl (First Birthday)</a></li>
+          <li><a href="birthday.html">Birthday Celebrations</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#booking" class="nav-cta">Book</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div class="page-hero">
+    <p class="eyebrow">Custom Celebrations</p>
+    <h1>Birthday <em>Styling</em></h1>
+    <p>Fully custom birthday styling for your little one's 2nd birthday and beyond. Tell us your vision — we'll make it magical.</p>
+  </div>
+
+  <!-- ── INTRO ── -->
+  <section id="intro">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-heading">Every birthday is <em>one of a kind</em></h2>
+    <p class="section-sub">Our birthday styling is completely bespoke — no preset packages. Share your theme, guest count, and vision, and we'll build a custom proposal just for you. From whimsical and playful to elegant and minimal, we handle every detail.</p>
+  </section>
+
+  <!-- ── WHAT WE CAN DO ── -->
+  <section id="services-overview">
+    <div class="custom-header">
+      <p class="section-label">What's Included</p>
+      <h2 class="section-heading">Full-service <em>birthday styling</em></h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🎂</div>
+        <h4>Cake &amp; Dessert Table</h4>
+        <p>Custom faux or real cake display, dessert styling, and tabletop arrangements built around your theme.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎈</div>
+        <h4>Backdrop &amp; Decor</h4>
+        <p>Balloon garlands, custom foam cutouts, banners, florals — we design and source everything for your setup.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">✂️</div>
+        <h4>Custom Signage</h4>
+        <p>Personalized welcome signs, name banners, foamboard props, and tabletop signs tailored to your theme.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚗</div>
+        <h4>Setup &amp; Breakdown</h4>
+        <p>We arrive early, set everything up beautifully, and return after the event to break it all down. Travel fee may apply.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── INQUIRY FORM ── -->
+  <section id="inquiry">
+    <div class="inquiry-wrap">
+      <div class="inquiry-header">
+        <p class="section-label">Custom Inquiry</p>
+        <h2 class="section-heading">Tell us about <em>your celebration</em></h2>
+        <p class="section-sub">Fill out the form below and we'll get back to you within 2–3 business days with a custom proposal and pricing.</p>
+      </div>
+
+      <form action="https://formspree.io/f/mykavyjz" method="post">
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="First &amp; last name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+          </div>
+
+          <div class="form-group">
+            <label for="instagram">Instagram Handle</label>
+            <input type="text" id="instagram" name="instagram" placeholder="@yourusername" />
+            <span class="form-note">Optional — helpful for sharing inspo</span>
+          </div>
+
+          <div class="form-group">
+            <label for="child-name">Birthday Child's Name</label>
+            <input type="text" id="child-name" name="child-name" placeholder="Name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="age">Birthday Age</label>
+            <input type="text" id="age" name="age" placeholder="e.g. 2nd, 3rd, 5th" required />
+          </div>
+
+          <div class="form-group">
+            <label for="event-date">Event Date</label>
+            <input type="date" id="event-date" name="event-date" required />
+          </div>
+
+          <div class="form-group">
+            <label for="guests">Estimated Guest Count</label>
+            <select id="guests" name="guests">
+              <option value="">— Select —</option>
+              <option>Under 20</option>
+              <option>20–40</option>
+              <option>40–70</option>
+              <option>70–100</option>
+              <option>100+</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="venue">Venue or Location</label>
+            <input type="text" id="venue" name="venue" placeholder="Venue name and city, or 'at home in Downey, CA'" />
+          </div>
+
+          <div class="form-group full">
+            <label for="theme">Theme &amp; Color Palette</label>
+            <input type="text" id="theme" name="theme" placeholder="e.g. Floral garden party, soft pink &amp; cream; or Disney Princess, bold colors" />
+          </div>
+
+          <div class="form-group full">
+            <label for="vision">Tell Us Your Vision</label>
+            <textarea id="vision" name="vision" placeholder="Describe the vibe, any specific decor elements you love, inspiration photos you have in mind, or anything else you'd like us to know..."></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label>Add-Ons You're Interested In</label>
+            <div class="form-check-group">
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="balloon-garland" />
+                Balloon Garland
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="real-florals" />
+                Real Florals
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="custom-signage" />
+                Custom Signage
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="foam-cutouts" />
+                Foam Cutouts
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="welcome-table" />
+                Welcome Table
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="photography" />
+                Photography Services (+$350)
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="hanbok-cookies" />
+                Hanbok Cookies
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="other" />
+                Something else (note below)
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label for="budget">Approximate Budget</label>
+            <select id="budget" name="budget">
+              <option value="">— Select a range —</option>
+              <option>Under $500</option>
+              <option>$500 – $1,000</option>
+              <option>$1,000 – $1,500</option>
+              <option>$1,500 – $2,500</option>
+              <option>$2,500+</option>
+              <option>Flexible / Not sure</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="notes">Anything Else?</label>
+            <textarea id="notes" name="notes" placeholder="Special requests, timing notes, venue restrictions, or any questions..."></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit" class="submit-btn">Send My Inquiry</button>
+        <p class="form-disclaimer">We'll respond within 2–3 business days. For faster questions, DM us on Instagram @levi_and_moon or email maryparkstudio@gmail.com</p>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ── ADD-ONS ── -->
+  <section id="customizations">
+    <div class="custom-header">
+      <p class="section-label">Add-Ons &amp; Enhancements</p>
+      <h2 class="section-heading">Elevate your <em>celebration</em></h2>
+      <p class="section-sub">These popular add-ons can be included with your custom birthday package. Let us know which ones interest you in the inquiry form above.</p>
+    </div>
+    <span class="custom-note">— Available as add-ons to any birthday package —</span>
+    <div class="addons-grid">
+
+      <div class="addon-card premium">
+        <div class="addon-price teal">+$350</div>
+        <div class="addon-name">Photography Services</div>
+        <ul class="addon-list">
+          <li>Professional event photography</li>
+          <li>Captures your styled setup &amp; celebration moments</li>
+          <li>Edited digital gallery delivered within 1–2 weeks</li>
+        </ul>
+      </div>
+
+      <div class="addon-card">
+        <div class="addon-price">+$150</div>
+        <div class="addon-name">4' Wall Balloon Garland</div>
+        <ul class="addon-list">
+          <li>4-foot wall balloon garland</li>
+          <li>Color palette of your choice</li>
+        </ul>
+      </div>
+
+      <div class="addon-card">
+        <div class="addon-price">+$175</div>
+        <div class="addon-name">Real Florals</div>
+        <ul class="addon-list">
+          <li>Two small real floral arrangements</li>
+          <li>Florist choice of seasonal blooms</li>
+        </ul>
+      </div>
+
+      <div class="addon-card">
+        <div class="addon-price">+$45</div>
+        <div class="addon-name">Custom Foamboard Banner</div>
+        <ul class="addon-list">
+          <li>Personalized foamboard banner</li>
+          <li>Custom design &amp; text</li>
+        </ul>
+      </div>
+
+      <div class="addon-card">
+        <div class="addon-price">+$35 / +$125</div>
+        <div class="addon-name">Custom Hanbok Cookies</div>
+        <ul class="addon-list">
+          <li>2 custom decorated hanbok cookies (+$35)</li>
+          <li>1 dozen custom decorated hanbok cookies (+$125)</li>
+        </ul>
+      </div>
+
+      <div class="addon-card" style="border-left-color: var(--sand); background: var(--white);">
+        <div class="addon-price" style="color: var(--mid);">Contact for Pricing</div>
+        <div class="addon-name">À La Carte</div>
+        <ul class="addon-list">
+          <li>Anything else? Contact us — we can make almost anything happen!</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <a class="logo" href="murrzstudio-events.html">Levi &amp; Moon</a>
+    <nav>
+      <a href="baekil.html">Baekil</a>
+      <a href="dohl.html">Dohl</a>
+      <a href="birthday.html">Birthdays</a>
+      <a href="murrzstudio-events.html#about">About</a>
+      <a href="index.html#booking">Book Now</a>
+      <a href="https://www.instagram.com/levi_and_moon" target="_blank">@levi_and_moon</a>
+    </nav>
+    <p>© 2026 Levi &amp; Moon · Events &amp; Celebrations</p>
+  </footer>
+
+</body>
+</html>
