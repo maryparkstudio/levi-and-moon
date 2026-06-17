@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birthday Celebrations | Levi & Moon</title>
+  <title>Birthdays | Levi & Moon</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -502,7 +502,7 @@
         <ul class="drop">
           <li><a href="baekil.html">Baekil (100 Day)</a></li>
           <li><a href="dohl.html">Dohl (First Birthday)</a></li>
-          <li><a href="birthday.html">Birthday Celebrations</a></li>
+          <li><a href="birthday.html">Birthdays</a></li>
         </ul>
       </li>
       <li><a href="index.html#about">About</a></li>
@@ -568,133 +568,47 @@
         <p class="section-sub">Fill out the form below and we'll get back to you within 2–3 business days with a custom proposal and pricing.</p>
       </div>
 
-      <form action="https://formspree.io/f/mykavyjz" method="post">
-        <div class="form-grid">
-
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="First &amp; last name" required />
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
-          </div>
-
-          <div class="form-group">
-            <label for="instagram">Instagram Handle</label>
-            <input type="text" id="instagram" name="instagram" placeholder="@yourusername" />
-            <span class="form-note">Optional — helpful for sharing inspo</span>
-          </div>
-
-          <div class="form-group">
-            <label for="child-name">Birthday Child's Name</label>
-            <input type="text" id="child-name" name="child-name" placeholder="Name" required />
-          </div>
-
-          <div class="form-group">
-            <label for="age">Birthday Age</label>
-            <input type="text" id="age" name="age" placeholder="e.g. 2nd, 3rd, 5th" required />
-          </div>
-
-          <div class="form-group">
-            <label for="event-date">Event Date</label>
-            <input type="date" id="event-date" name="event-date" required />
-          </div>
-
-          <div class="form-group">
-            <label for="guests">Estimated Guest Count</label>
-            <select id="guests" name="guests">
-              <option value="">— Select —</option>
-              <option>Under 20</option>
-              <option>20–40</option>
-              <option>40–70</option>
-              <option>70–100</option>
-              <option>100+</option>
-            </select>
-          </div>
-
-          <div class="form-group full">
-            <label for="venue">Venue or Location</label>
-            <input type="text" id="venue" name="venue" placeholder="Venue name and city, or 'at home in Downey, CA'" />
-          </div>
-
-          <div class="form-group full">
-            <label for="theme">Theme &amp; Color Palette</label>
-            <input type="text" id="theme" name="theme" placeholder="e.g. Floral garden party, soft pink &amp; cream; or Disney Princess, bold colors" />
-          </div>
-
-          <div class="form-group full">
-            <label for="vision">Tell Us Your Vision</label>
-            <textarea id="vision" name="vision" placeholder="Describe the vibe, any specific decor elements you love, inspiration photos you have in mind, or anything else you'd like us to know..."></textarea>
-          </div>
-
-          <div class="form-group full">
-            <label>Add-Ons You're Interested In</label>
-            <div class="form-check-group">
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="balloon-garland" />
-                Balloon Garland
-              </label>
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="real-florals" />
-                Real Florals
-              </label>
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="custom-signage" />
-                Custom Signage
-              </label>
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="foam-cutouts" />
-                Foam Cutouts
-              </label>
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="welcome-table" />
-                Welcome Table
-              </label>
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="photography" />
-                Photography Services (+$350)
-              </label>
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="hanbok-cookies" />
-                Hanbok Cookies
-              </label>
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="other" />
-                Something else (note below)
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group full">
-            <label for="budget">Approximate Budget</label>
-            <select id="budget" name="budget">
-              <option value="">— Select a range —</option>
-              <option>Under $500</option>
-              <option>$500 – $1,000</option>
-              <option>$1,000 – $1,500</option>
-              <option>$1,500 – $2,500</option>
-              <option>$2,500+</option>
-              <option>Flexible / Not sure</option>
-            </select>
-          </div>
-
-          <div class="form-group full">
-            <label for="notes">Anything Else?</label>
-            <textarea id="notes" name="notes" placeholder="Special requests, timing notes, venue restrictions, or any questions..."></textarea>
-          </div>
-
+      <form class="booking-form" action="https://formspree.io/f/mykavyjz" method="post">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" placeholder="Your name" required />
         </div>
-
-        <button type="submit" class="submit-btn">Send My Inquiry</button>
-        <p class="form-disclaimer">We'll respond within 2–3 business days. For faster questions, DM us on Instagram @levi_and_moon or email maryparkstudio@gmail.com</p>
-
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last name" />
+        </div>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(555) 000-0000" />
+        </div>
+        <div class="form-group">
+          <label>What type of event? *</label>
+          <select required>
+            <option value="" disabled selected>Select your event</option>
+            <option>Baekil (백일 · 100 Days)</option>
+            <option>Dohl (돌잔치 · 1st Birthday)</option>
+            <option>Birthday Party (2nd+)</option>
+            <option>Baby Shower</option>
+            <option>Bridal Shower</option>
+            <option>Gender Reveal</option>
+            <option>Other Milestone</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Event Date</label>
+          <input type="date" />
+        </div>
+        <div class="form-group" style="grid-column: 1 / -1;">
+          <label>Tell Me About Your Vision</label>
+          <textarea rows="4" placeholder="Theme, colors, venue, guest count, anything you'd love..." style="width:100%;padding:0.85rem 1rem;border:1px solid var(--sand);border-radius:4px;font-family:inherit;font-size:0.95rem;resize:vertical;background:var(--white);"></textarea>
+        </div>
+        <div class="form-group" style="grid-column: 1 / -1; display:flex; align-items:center; justify-content:center;">
+          <button type="submit" class="btn-primary" style="width:100%;max-width:320px;border:none;cursor:pointer;">Send My Inquiry ✨</button>
+        </div>
       </form>
     </div>
   </section>
