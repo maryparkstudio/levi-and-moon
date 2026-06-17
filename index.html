@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Levi & Moon | Korean Milestone Event Styling | Baekil, Dohl & Birthdays in Downey, CA</title>
   <meta name="description" content="Levi & Moon specializes in Korean milestone celebrations, Baekil (100-day), Dohl (first birthday), and birthday party styling in the LA area. Beautiful, intentional setups you'll cherish forever." />
-  <meta name="keywords" content="Baekil styling, Dohl styling, Korean 100 day celebrathion, Doljabi setup, Korean first birthday, event styling Downey CA, Korean milestone party, 돌잔치, 백일" />
+  <meta name="keywords" content="Baekil styling, Dohl styling, Korean 100 day celebration, Doljabi setup, Korean first birthday, event styling Downey CA, Korean milestone party, 돌잔치, 백일" />
   <meta name="author" content="Mary, Levi & Moon" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://leviandmoon.com/" />
@@ -315,9 +315,34 @@
 
     /* ── MARQUEE ── */
     .marquee-wrap {
-      background: var(--rose);
+      position: relative;
       overflow: hidden;
-      padding: 0.75rem 0;
+      padding: 0.85rem 0;
+      background:
+        repeating-linear-gradient(
+          102deg,
+          transparent,
+          transparent 20px,
+          rgba(140, 100, 55, 0.035) 20px,
+          rgba(140, 100, 55, 0.035) 21px
+        ),
+        repeating-linear-gradient(
+          8deg,
+          transparent,
+          transparent 28px,
+          rgba(160, 115, 60, 0.025) 28px,
+          rgba(160, 115, 60, 0.025) 29px
+        ),
+        linear-gradient(
+          180deg,
+          #e9dfc8 0%,
+          #dfd3b5 35%,
+          #d8cba8 65%,
+          #e2d8be 100%
+        );
+      box-shadow:
+        inset 0 2px 6px rgba(0,0,0,0.09),
+        inset 0 -2px 6px rgba(0,0,0,0.07);
     }
 
     .marquee-track {
@@ -327,17 +352,19 @@
     }
 
     .marquee-item {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
+      font-size: 0.70rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--white);
+      color: #6b4f2e;
       padding: 0 2.5rem;
       flex-shrink: 0;
+      text-shadow: 0.4px 0.4px 0px rgba(80, 48, 18, 0.18);
     }
 
     .marquee-dot {
-      color: rgba(255,255,255,0.5);
+      color: #a07848;
+      opacity: 0.65;
       padding: 0 0.5rem;
     }
 
@@ -859,7 +886,8 @@
   <div class="nav-overlay" id="navOverlay">
     <button class="nav-close" onclick="toggleNav()" aria-label="Close menu">✕</button>
     <a href="baekil.html" onclick="toggleNav()">Baekil</a>
-    <a href="dohl.html" onclick="toggleNav()">Dohl</a>    <a href="birthday.html" onclick="toggleNav()">Birthday</a>
+    <a href="dohl.html" onclick="toggleNav()">Dohl</a>
+    <a href="birthday.html" onclick="toggleNav()">Birthday</a>
     <a href="index.html#about" onclick="toggleNav()">About</a>
     <a href="index.html#booking" class="overlay-cta" onclick="toggleNav()">Book Now</a>
   </div>
@@ -1140,7 +1168,7 @@
     </div>
     <nav>
       <a href="baekil.html">Baekil</a>
-      <a href="dohl.html">Dohl</a>    <a href="birthday.html" onclick="toggleNav()">Birthday</a>
+      <a href="dohl.html">Dohl</a>
       <a href="index.html#about">About</a>
       <a href="index.html#booking">Contact</a>
     </nav>
