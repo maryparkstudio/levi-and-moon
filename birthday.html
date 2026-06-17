@@ -489,6 +489,55 @@
       .form-check-group { grid-template-columns: 1fr; }
       footer { flex-direction: column; align-items: flex-start; }
     }
+
+    .booking-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .booking-form .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .booking-form .form-group label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .booking-form .form-group input,
+    .booking-form .form-group select,
+    .booking-form .form-group textarea {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      background: var(--white);
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .booking-form .form-group input:focus,
+    .booking-form .form-group select:focus,
+    .booking-form .form-group textarea:focus { border-color: var(--rose); }
+    .btn-primary {
+      background: var(--rose);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--deep); }
+
+    @media (max-width: 600px) {
+      .booking-form { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
