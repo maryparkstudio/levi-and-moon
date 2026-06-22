@@ -620,23 +620,23 @@
       <form class="booking-form" action="https://formspree.io/f/mykavyjz" method="post">
         <div class="form-group">
           <label>First Name *</label>
-          <input type="text" placeholder="Your name" required />
+          <input type="text" name="first-name" placeholder="Your name" required />
         </div>
         <div class="form-group">
           <label>Last Name</label>
-          <input type="text" placeholder="Last name" />
+          <input type="text" name="last-name" placeholder="Last name" />
         </div>
         <div class="form-group">
           <label>Email *</label>
-          <input type="email" placeholder="your@email.com" required />
+          <input type="email" name="email" placeholder="your@email.com" required />
         </div>
         <div class="form-group">
           <label>Phone</label>
-          <input type="tel" placeholder="(555) 000-0000" />
+          <input type="tel" name="phone" placeholder="(555) 000-0000" />
         </div>
         <div class="form-group">
           <label>What type of event? *</label>
-          <select required>
+          <select name="event-type" required>
             <option value="" disabled selected>Select your event</option>
             <option>Baekil (백일 · 100 Days)</option>
             <option>Dohl (돌잔치 · 1st Birthday)</option>
@@ -649,11 +649,11 @@
         </div>
         <div class="form-group">
           <label>Event Date</label>
-          <input type="date" />
+          <input type="date" name="event-date" />
         </div>
         <div class="form-group" style="grid-column: 1 / -1;">
           <label>Tell Me About Your Vision</label>
-          <textarea rows="4" placeholder="Theme, colors, venue, guest count, anything you'd love..." style="width:100%;padding:0.85rem 1rem;border:1px solid var(--sand);border-radius:4px;font-family:inherit;font-size:0.95rem;resize:vertical;background:var(--white);"></textarea>
+          <textarea name="vision" rows="4" placeholder="Theme, colors, venue, guest count, anything you'd love..." style="width:100%;padding:0.85rem 1rem;border:1px solid var(--sand);border-radius:4px;font-family:inherit;font-size:0.95rem;resize:vertical;background:var(--white);"></textarea>
         </div>
         <div class="form-group" style="grid-column: 1 / -1; display:flex; align-items:center; justify-content:center;">
           <button type="submit" class="btn-primary" style="width:100%;max-width:320px;border:none;cursor:pointer;">Send My Inquiry ✨</button>
