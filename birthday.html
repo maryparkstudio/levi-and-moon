@@ -464,7 +464,7 @@
       text-decoration: none;
     }
 
-    footer nav { display: flex; gap: 2rem; }
+    footer nav { display: flex; gap: 2rem; position: static; height: auto; background: none; padding: 0; flex-wrap: wrap; }
 
     footer nav a {
       color: rgba(255,255,255,0.5);
@@ -589,9 +589,9 @@
       </div>
 
       <div class="service-card">
-        <div class="service-icon">🎈</div>
+        <div class="service-icon">🌸</div>
         <h4>Backdrop &amp; Decor</h4>
-        <p>Balloon garlands, custom foam cutouts, banners, florals — we design and source everything for your setup.</p>
+        <p>Custom foam cutouts, banners, florals — we design and source everything for your setup.</p>
       </div>
 
       <div class="service-card">
@@ -684,15 +684,6 @@
       </div>
 
       <div class="addon-card">
-        <div class="addon-price">+$150</div>
-        <div class="addon-name">4' Wall Balloon Garland</div>
-        <ul class="addon-list">
-          <li>4-foot wall balloon garland</li>
-          <li>Color palette of your choice</li>
-        </ul>
-      </div>
-
-      <div class="addon-card">
         <div class="addon-price">+$175</div>
         <div class="addon-name">Real Florals</div>
         <ul class="addon-list">
@@ -729,6 +720,16 @@
         </ul>
       </div>
 
+      <div class="addon-card">
+        <div class="addon-price">Starting at $80</div>
+        <div class="addon-name">Balloon Cluster</div>
+        <ul class="addon-list">
+          <li>Small organic balloon cluster</li>
+          <li>Color-matched to your setup</li>
+          <li>Adds height and dimension to display</li>
+        </ul>
+      </div>
+
             <div class="addon-card" style="border-left-color: var(--sand); background: var(--white);">
         <div class="addon-price" style="color: var(--mid);">Contact for Pricing</div>
         <div class="addon-name">À La Carte</div>
@@ -737,6 +738,44 @@
         </ul>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section id="faq" style="background:var(--cream);padding:4rem 1.5rem;">
+    <div style="max-width:760px;margin:0 auto;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);text-align:center;margin:0 0 0.5rem;">FAQ</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--dark);text-align:center;margin:0 0 1.5rem;">Frequently asked <em style="color:var(--rose);">questions</em></h2>
+      <div>
+        <details style="border-bottom:1px solid var(--blush);padding:1rem 0;">
+          <summary style="cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--dark);">Is a deposit required?</summary>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--mid);margin:0.6rem 0 0;">Yes. A non-refundable deposit is required to secure your date, with the remaining balance due before your event. Exact amounts and due dates are listed in your booking agreement.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--blush);padding:1rem 0;">
+          <summary style="cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--dark);">What if an item gets damaged or lost?</summary>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--mid);margin:0.6rem 0 0;">Rental items that are lost or damaged will be charged at replacement cost.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--blush);padding:1rem 0;">
+          <summary style="cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--dark);">What if I return items late?</summary>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--mid);margin:0.6rem 0 0;">Items returned after the agreed rental period may be subject to a late fee.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--blush);padding:1rem 0;">
+          <summary style="cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--dark);">Are your baked goods allergy-friendly?</summary>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--mid);margin:0.6rem 0 0;">Our baked goods are made in a kitchen that may handle nuts, dairy, eggs, wheat, and soy. Please let us know about any allergies before booking.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--blush);padding:1rem 0;">
+          <summary style="cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--dark);">Who handles venue rules and access?</summary>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--mid);margin:0.6rem 0 0;">Client is responsible for confirming venue access, setup times, and any decor rules or restrictions.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--blush);padding:1rem 0;">
+          <summary style="cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--dark);">Will you post photos of my event?</summary>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--mid);margin:0.6rem 0 0;">We may share photos of your setup on our website and social media. Just let us know if you'd prefer we don't.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--blush);padding:1rem 0;">
+          <summary style="cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--dark);">Can you set up outdoors?</summary>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--mid);margin:0.6rem 0 0;">Yes! Just keep in mind wind, heat, or rain can affect backdrops, florals, and decor. Outdoor setups are at the client's risk.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -749,7 +788,7 @@
       <a href="birthday.html">Birthdays</a>
       <a href="index.html#about">About</a>
       <a href="index.html#booking">Book Now</a>
-      <a href="https://www.instagram.com/levi_and_moon" target="_blank">@levi_and_moon</a>
+      <a href="https://www.instagram.com/levis_moon_events" target="_blank" rel="noopener">@levis_moon_events</a>
     </nav>
     <p>© 2026 Levi's Moon · Events &amp; Celebrations</p>
   </footer>
